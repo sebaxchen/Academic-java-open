@@ -1,0 +1,11 @@
+.footer-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: darkred ;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}

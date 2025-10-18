@@ -1,0 +1,26 @@
+{
+  "option": {
+    "home": "Inicio",
+    "about": "Acerca",
+    "courses": "Cursos",
+    "categories": "Categorias"
+  },
+  "about": {
+    "title": "Acerca de nosotros",
+    "content": "ACME Learning Center es una plataforma educativa, parte de ACME Corporation"
+  },
+  "home": {
+    "title": "Bienvenido",
+    "content": "Bienvenido a ACME Learning Center"
+  },
+  "page-not-found": {
+    "title": "Pàgina no encontrada",
+    "content": "La ruta <strong>{{ invalidPath }}</strong> es invàlida",
+    "go-home": "Ir al inicio"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "powered-by": "Desarrollado con",
+    "and": "y"
+  }
+}
