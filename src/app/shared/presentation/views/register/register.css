@@ -2,6 +2,11 @@
   min-height: 100vh;
   background: #f5f5f5;
   padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .register-container {
+  background: #121212;
 }
 
 .register-layout {
@@ -16,6 +21,11 @@
   align-items: center;
   padding: 3rem 4rem;
   background: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .content-section {
+  background: #121212;
 }
 
 .content-wrapper {
@@ -28,6 +38,11 @@
   color: #1a1a1a;
   margin: 0 0 2rem 0;
   line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .content-title {
+  color: #e0e0e0;
 }
 
 .content-description {
@@ -35,6 +50,11 @@
   color: #333;
   margin: 0 0 2rem 0;
   line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .content-description {
+  color: #b0b0b0;
 }
 
 .features-list {
@@ -50,6 +70,11 @@
   padding-left: 1.5rem;
   position: relative;
   line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .features-list li {
+  color: #b0b0b0;
 }
 
 .features-list li::before {
@@ -66,6 +91,11 @@
   justify-content: center;
   padding: 2rem;
   background: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .form-section {
+  background: #121212;
 }
 
 .register-card {
@@ -75,6 +105,12 @@
   padding: 2.5rem;
   width: 100%;
   max-width: 420px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .register-card {
+  background: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .form-header {
@@ -104,12 +140,22 @@
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .form-title {
+  color: #e0e0e0;
 }
 
 .form-subtitle {
   font-size: 0.9rem;
   color: #666;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .form-subtitle {
+  color: #b0b0b0;
 }
 
 .register-form {

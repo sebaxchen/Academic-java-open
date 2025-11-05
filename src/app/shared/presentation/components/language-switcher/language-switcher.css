@@ -3,8 +3,8 @@
   display: inline-flex;
   background: #ffffff;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 4px;
+  border-radius: 6px;
+  padding: 3px;
   gap: 0;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -14,14 +14,14 @@
   position: relative;
   background: transparent;
   border: none;
-  padding: 8px 20px;
+  padding: 6px 14px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: #666;
   z-index: 2;
-  min-width: 50px;
+  min-width: 40px;
   outline: none;
 }
 
@@ -42,12 +42,12 @@
 
 .slider {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(50% - 4px);
-  height: calc(100% - 8px);
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
   background: #1976d2;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
   box-shadow: 0 2px 4px rgba(25, 118, 210, 0.2);
@@ -71,4 +71,22 @@
 
 .language-switcher {
   animation: slideIn 0.3s ease-out;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .language-switcher {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark-mode .language-button {
+  color: #b0b0b0;
+}
+
+body.dark-mode .language-button:hover {
+  color: #e0e0e0;
+}
+
+body.dark-mode .language-button.active {
+  color: #fff;
 }
