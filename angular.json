@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "learning-center": {
+    "java-fundamentals-course-ChroniCaree": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -63,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "learning-center:build:production"
+              "buildTarget": "java-fundamentals-course-ChroniCaree:build:production"
             },
             "development": {
-              "buildTarget": "learning-center:build:development"
+              "buildTarget": "java-fundamentals-course-ChroniCaree:build:development"
             }
           },
           "defaultConfiguration": "development"
