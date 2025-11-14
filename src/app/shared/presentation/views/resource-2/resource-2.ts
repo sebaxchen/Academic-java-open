@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { TranslatePipe } from "@ngx-translate/core";
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { tags } from '@lezer/highlight';
 @Component({
   selector: 'app-resource-2',
   imports: [
+    NgIf,
     TranslatePipe,
     FormsModule,
     Codemirror6Component
@@ -28,7 +30,6 @@ export class Resource2 {
   code: string = '';
   result: string = 'Escribe código en el editor para ver los resultados aquí...';
   videoUrl: SafeResourceUrl;
-  transcription: string = 'Aquí aparecerá la transcripción del video. Puedes agregar el texto completo de lo que se dice en el video para que los usuarios puedan leerlo mientras ven el contenido.';
   exampleCode: string = `// Ejemplo de código JavaScript
 function saludar(nombre) {
   return "¡Hola, " + nombre + "!";
@@ -36,6 +37,69 @@ function saludar(nombre) {
 
 console.log(saludar("Mundo"));
 // Resultado: ¡Hola, Mundo!`;
+  readonly videoId = 'dQw4w9WgXcQ';
+  readonly videoLink = `https://youtu.be/${this.videoId}`;
+
+  readonly exercises = [
+    {
+      title: 'Ejercicio 1',
+      code: `public class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Número: " + i);
+        }
+    }
+}`
+    },
+    {
+      title: 'Ejercicio 2',
+      code: `public class Main {
+    public static void main(String[] args) {
+        int numero = 8;
+
+        if (numero % 2 == 0) {
+            System.out.println("Es par");
+        } else {
+            System.out.println("Es impar");
+        }
+    }
+}`
+    },
+    {
+      title: 'Ejercicio 3',
+      code: `public class Main {
+    public static void main(String[] args) {
+        int suma = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            suma += i;
+        }
+
+        System.out.println("La suma de 1 a 10 es: " + suma);
+    }
+}`
+    },
+    {
+      title: 'Ejercicio 4',
+      code: `public class Main {
+    public static void main(String[] args) {
+        int contador = 5;
+
+        while (contador > 0) {
+            System.out.println("Cuenta regresiva: " + contador);
+            contador--;
+        }
+
+        System.out.println("¡Despegue!");
+    }
+}`
+    }
+  ];
+
+  currentExerciseIndex = 0;
+  get currentExercise() {
+    return this.exercises[this.currentExerciseIndex] ?? null;
+  }
 
   extensions: Extension[] = [
     lineNumbers(),
@@ -116,9 +180,16 @@ console.log(saludar("Mundo"));
   ];
 
   constructor(private sanitizer: DomSanitizer) {
-    const videoId = 'dQw4w9WgXcQ';
-    const url = `https://www.youtube.com/embed/${videoId}`;
+    const url = `https://www.youtube.com/embed/${this.videoId}`;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  showNextExercise() {
+    if (this.exercises.length === 0) {
+      return;
+    }
+
+    this.currentExerciseIndex = (this.currentExerciseIndex + 1) % this.exercises.length;
   }
 
   onCodeChange() {

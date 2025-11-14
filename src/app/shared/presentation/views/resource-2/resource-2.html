@@ -11,10 +11,30 @@
         class="youtube-video">
       </iframe>
     </div>
-    <div class="transcription-section">
-      <h2 class="section-title">Transcripción</h2>
-      <div class="transcription-content">
-        <p>{{ transcription }}</p>
+    <a
+      class="video-link"
+      [href]="videoLink"
+      target="_blank"
+      rel="noopener noreferrer">
+      Ver en YouTube
+    </a>
+    <div class="exercise-section">
+      <h2 class="section-title">Ejercicios</h2>
+      <div class="exercise-list">
+        <div class="exercise-card" *ngIf="currentExercise as exercise">
+          <div class="exercise-sidebar">
+            <div class="exercise-header">
+              <h3 class="exercise-title">{{ exercise.title }}</h3>
+              <span class="exercise-counter">{{ currentExerciseIndex + 1 }} / {{ exercises.length }}</span>
+            </div>
+            <div class="exercise-actions">
+              <button type="button" class="exercise-button" (click)="showNextExercise()">
+                Siguiente ejercicio
+              </button>
+            </div>
+          </div>
+          <pre class="exercise-code"><code>{{ exercise.code }}</code></pre>
+        </div>
       </div>
     </div>
   </div>

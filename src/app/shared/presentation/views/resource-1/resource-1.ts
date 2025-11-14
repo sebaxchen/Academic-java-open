@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { TranslatePipe } from "@ngx-translate/core";
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { tags } from '@lezer/highlight';
 @Component({
   selector: 'app-resource-1',
   imports: [
+    NgIf,
     TranslatePipe,
     FormsModule,
     Codemirror6Component
@@ -28,7 +30,6 @@ export class Resource1 {
   code: string = '';
   result: string = 'Escribe código en el editor para ver los resultados aquí...';
   videoUrl: SafeResourceUrl;
-  transcription: string = 'Aquí aparecerá la transcripción del video. Puedes agregar el texto completo de lo que se dice en el video para que los usuarios puedan leerlo mientras ven el contenido.';
   exampleCode: string = `// Ejemplo de código JavaScript
 function saludar(nombre) {
   return "¡Hola, " + nombre + "!";
@@ -36,6 +37,71 @@ function saludar(nombre) {
 
 console.log(saludar("Mundo"));
 // Resultado: ¡Hola, Mundo!`;
+  readonly videoId = 'y71frNkA6vk';
+  readonly videoLink = `https://youtu.be/${this.videoId}`;
+
+  readonly exercises = [
+    {
+      title: 'Ejercicio 1',
+      code: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa tu edad: ");
+        int edad = scanner.nextInt();
+
+        System.out.println("En 5 años tendrás: " + (edad + 5));
+        scanner.close();
+    }
+}`
+    },
+    {
+      title: 'Ejercicio 2',
+      code: `public class Main {
+    public static void main(String[] args) {
+        String lenguaje = "Java";
+        String mensaje = String.format("Aprender %s es divertido.", lenguaje);
+
+        System.out.println(mensaje);
+    }
+}`
+    },
+    {
+      title: 'Ejercicio 3',
+      code: `public class Main {
+    public static void main(String[] args) {
+        double precio = 19.99;
+        int cantidad = 3;
+
+        double total = precio * cantidad;
+        System.out.println("Total a pagar: " + total);
+    }
+}`
+    },
+    {
+      title: 'Ejercicio 4',
+      code: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa tu nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.println("Hola " + nombre + ", ¡este es tu primer programa en Java!");
+        scanner.close();
+    }
+}`
+    }
+  ];
+
+  currentExerciseIndex = 0;
+  get currentExercise() {
+    return this.exercises[this.currentExerciseIndex] ?? null;
+  }
 
   extensions: Extension[] = [
     lineNumbers(),
@@ -116,10 +182,16 @@ console.log(saludar("Mundo"));
   ];
 
   constructor(private sanitizer: DomSanitizer) {
-    // URL del video de YouTube (puedes cambiarla)
-    const videoId = 'dQw4w9WgXcQ'; // Reemplaza con el ID de tu video
-    const url = `https://www.youtube.com/embed/${videoId}`;
+    const url = `https://www.youtube.com/embed/${this.videoId}`;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  showNextExercise() {
+    if (this.exercises.length === 0) {
+      return;
+    }
+
+    this.currentExerciseIndex = (this.currentExerciseIndex + 1) % this.exercises.length;
   }
 
   onCodeChange() {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { TranslatePipe } from "@ngx-translate/core";
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { tags } from '@lezer/highlight';
 @Component({
   selector: 'app-resource-3',
   imports: [
+    NgIf,
     TranslatePipe,
     FormsModule,
     Codemirror6Component
@@ -131,8 +133,10 @@ public class Main {
     }
   ];
 
-  readonly leftExercises = this.exercises.slice(0, 2);
-  readonly rightExercises = this.exercises.slice(2);
+  currentExerciseIndex = 0;
+  get currentExercise() {
+    return this.exercises[this.currentExerciseIndex] ?? null;
+  }
 
   extensions: Extension[] = [
     lineNumbers(),
@@ -216,6 +220,14 @@ public class Main {
     const videoId = '1pJv1WWjRPU';
     const url = `https://www.youtube.com/embed/${videoId}`;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  showNextExercise() {
+    if (this.exercises.length === 0) {
+      return;
+    }
+
+    this.currentExerciseIndex = (this.currentExerciseIndex + 1) % this.exercises.length;
   }
 
   onCodeChange() {
