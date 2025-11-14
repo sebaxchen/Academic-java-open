@@ -49,11 +49,290 @@ console.log(saludar("Mundo"));
   readonly exercises = [
     {
       title: 'resources.exercise1',
-      code: `// Ejemplo de ejercicio
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World");
+      code: `// MINIPROYECTO POO - ALCANCIA
+
+public class Alcancia {
+
+
+
+    private double saldo;
+
+
+
+    public Alcancia() {
+
+        this.saldo = 0.0;
+
     }
+
+
+
+    public double verSaldo() {
+
+        return this.saldo;
+
+    }
+
+
+
+    public boolean ahorrar(double cantidad) {
+
+        if (cantidad <= 0) {
+
+            return false;
+
+        }
+
+        this.saldo += cantidad;
+
+        return true;
+
+    }
+
+
+
+    public boolean gastar(double cantidad) {
+
+        if (cantidad <= 0 || cantidad > this.saldo) {
+
+            return false;
+
+        }
+
+        this.saldo -= cantidad;
+
+        return true;
+
+    }
+
+
+
+    public static void main(String[] args) {
+
+        Alcancia miAlcancia = new Alcancia();
+
+        System.out.println("Saldo inicial: " + miAlcancia.verSaldo());
+
+
+
+        miAlcancia.ahorrar(10.0);
+
+        System.out.println("Después de ahorrar 10: " + miAlcancia.verSaldo());
+
+
+
+        miAlcancia.gastar(3.5);
+
+        System.out.println("Después de gastar 3.5: " + miAlcancia.verSaldo());
+
+    }
+
+}`
+    },
+    {
+      title: 'resources.exercise2',
+      code: `// BUENA PRÁCTICA 1: Comparación de Strings
+
+public class TestString {
+
+    public static void main(String[] args) {
+
+        String a = "hola";
+
+        String b = new String("hola");
+
+
+
+        // ❌ INCORRECTO: Compara referencias, no el contenido
+
+        if (a == b) {
+
+            System.out.println("Son iguales");
+
+        } else {
+
+            System.out.println("No son iguales");
+
+        }
+
+
+
+        // ✅ CORRECTO: Compara el contenido de los Strings
+
+        if (a.equals(b)) {
+
+            System.out.println("Son iguales");
+
+        } else {
+
+            System.out.println("No son iguales");
+
+        }
+
+    }
+
+}`
+    },
+    {
+      title: 'resources.exercise3',
+      code: `// BUENA PRÁCTICA 2: Encapsulación
+
+// ❌ MALA PRÁCTICA: Atributos públicos
+
+public class Persona {
+
+    public String nombre;  
+
+}
+
+
+
+// ✅ BUENA PRÁCTICA: Atributos privados con getters y setters
+
+public class Persona {
+
+    private String nombre;
+
+
+
+    public String getNombre() {
+
+        return this.nombre;
+
+    }
+
+
+
+    public void setNombre(String nombre) {
+
+        this.nombre = nombre;
+
+    }
+
+}`
+    },
+    {
+      title: 'resources.exercise4',
+      code: `// BUENA PRÁCTICA 3: Uso de constantes
+
+// ❌ MALA PRÁCTICA: Números mágicos en el código
+
+double total = precio * 12;
+
+
+
+// ✅ BUENA PRÁCTICA: Usar constantes con nombres descriptivos
+
+final int MESES = 12;
+
+double total = precio * MESES;
+
+
+
+// Ejemplo completo:
+
+public class Calculadora {
+
+    private static final int MESES_EN_ANIO = 12;
+
+    private static final double TASA_INTERES = 0.05;
+
+
+
+    public static double calcularInteres(double capital) {
+
+        return capital * TASA_INTERES * MESES_EN_ANIO;
+
+    }
+
+}`
+    },
+    {
+      title: 'resources.exercise5',
+      code: `// BUENA PRÁCTICA 4: Validación de datos
+
+// ❌ MALA PRÁCTICA: Sin validación
+
+public class BadAlcancia {
+
+    public double saldo;
+
+
+
+    public void add(double c) {
+
+        saldo += c;
+
+    }
+
+
+
+    public static void main(String[] args) {
+
+        BadAlcancia a = new BadAlcancia();
+
+        a.add(-100);  // Permite valores negativos!
+
+        System.out.println(a.saldo);
+
+    }
+
+}
+
+
+
+// ✅ BUENA PRÁCTICA: Con validación y encapsulación
+
+public class GoodAlcancia {
+
+    private double saldo;
+
+
+
+    public GoodAlcancia() {
+
+        this.saldo = 0.0;
+
+    }
+
+
+
+    public boolean ahorrar(double cantidad) {
+
+        if (cantidad <= 0) {  // Validación
+
+            return false;
+
+        }
+
+        this.saldo += cantidad;
+
+        return true;
+
+    }
+
+
+
+    public double verSaldo() {
+
+        return this.saldo;
+
+    }
+
+
+
+    public static void main(String[] args) {
+
+        GoodAlcancia a = new GoodAlcancia();
+
+        boolean ok = a.ahorrar(50.0);      // ✅ Válido
+
+        boolean bad = a.ahorrar(-100.0);   // ❌ Rechazado
+
+        System.out.println("Saldo: " + a.verSaldo());
+
+    }
+
 }`
     }
   ];

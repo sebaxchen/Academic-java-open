@@ -61,6 +61,7 @@
     "exercise2": "Ejercicio 2",
     "exercise3": "Ejercicio 3",
     "exercise4": "Ejercicio 4",
+    "exercise5": "Ejercicio 5",
     "codePlaceholder": "Escribe código en el editor para ver los resultados aquí...",
     "codeExecutedSuccessfully": "✓ Código ejecutado correctamente (sin salida)",
     "error": "✗ Error"
@@ -78,5 +79,22 @@
     "nameRequired": "El nombre es requerido",
     "nameMinLength": "El nombre debe tener al menos 2 caracteres",
     "continue": "Continuar"
+  },
+  "courseComplete": {
+    "title": "¡Felicitaciones!",
+    "greeting": "Estimado/a {{name}},",
+    "defaultName": "Estudiante",
+    "message1": "Queremos felicitarte por completar el curso de Fundamentos de Programación en Java!",
+    "message2": "Tu dedicación y esfuerzo han sido excepcionales. Has aprendido exitosamente los fundamentos de la programación en Java, incluyendo:",
+    "message3": "• Variables y tipos de datos",
+    "message4": "• Operadores y estructuras de control",
+    "message5": "• Entrada/salida con Scanner",
+    "message6": "• Conceptos de programación orientada a objetos",
+    "message7": "• Buenas prácticas y miniproyectos",
+    "message8": "Estamos orgullosos de tu logro y esperamos que sigas creciendo como programador. ¡Sigue practicando y explorando nuevos desafíos!",
+    "message9": "Gracias por ser parte de nuestra comunidad de aprendizaje.",
+    "signature": "Saludos cordiales,",
+    "team": "El equipo de Academic",
+    "backToStart": "Volver al inicio"
   }
 }

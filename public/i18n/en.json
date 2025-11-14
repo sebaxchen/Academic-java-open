@@ -61,6 +61,7 @@
     "exercise2": "Exercise 2",
     "exercise3": "Exercise 3",
     "exercise4": "Exercise 4",
+    "exercise5": "Exercise 5",
     "codePlaceholder": "Write code in the editor to see results here...",
     "codeExecutedSuccessfully": "✓ Code executed successfully (no output)",
     "error": "✗ Error"
@@ -123,6 +124,23 @@
       "description-required": "Description is required",
       "category-required": "Category is required"
     }
+  },
+  "courseComplete": {
+    "title": "Congratulations!",
+    "greeting": "Dear {{name}},",
+    "defaultName": "Student",
+    "message1": "We want to congratulate you for completing the Java Programming Fundamentals course!",
+    "message2": "Your dedication and effort have been exceptional. You have successfully learned the basics of Java programming, including:",
+    "message3": "• Variables and data types",
+    "message4": "• Operators and control structures",
+    "message5": "• Input/output with Scanner",
+    "message6": "• Object-oriented programming concepts",
+    "message7": "• Best practices and mini-projects",
+    "message8": "We are proud of your achievement and hope you continue to grow as a programmer. Keep practicing and exploring new challenges!",
+    "message9": "Thank you for being part of our learning community.",
+    "signature": "Best regards,",
+    "team": "The Academic Team",
+    "backToStart": "Back to start"
   }
 }
 

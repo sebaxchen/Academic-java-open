@@ -1,8 +1,40 @@
 <div class="completion-container">
   <div class="completion-card">
-    <h1 class="completion-title">¡Congratulations!</h1>
-    <p class="completion-message">Completaste el curso.</p>
-    <a routerLink="/resource-1" class="restart-link">Volver al inicio</a>
+    <div class="card-header">
+      <div class="celebration-icon">🎉</div>
+      <h1 class="completion-title">{{ 'courseComplete.title' | translate }}</h1>
+    </div>
+    
+    <div class="thank-you-card">
+      <div class="card-content">
+        <p class="greeting">{{ greetingText() }}</p>
+        
+        <p class="thank-you-message">{{ 'courseComplete.message1' | translate }}</p>
+        
+        <p class="thank-you-message">{{ 'courseComplete.message2' | translate }}</p>
+        
+        <ul class="achievements-list">
+          <li>{{ 'courseComplete.message3' | translate }}</li>
+          <li>{{ 'courseComplete.message4' | translate }}</li>
+          <li>{{ 'courseComplete.message5' | translate }}</li>
+          <li>{{ 'courseComplete.message6' | translate }}</li>
+          <li>{{ 'courseComplete.message7' | translate }}</li>
+        </ul>
+        
+        <p class="thank-you-message">{{ 'courseComplete.message8' | translate }}</p>
+        
+        <p class="thank-you-message">{{ 'courseComplete.message9' | translate }}</p>
+        
+        <div class="signature-section">
+          <p class="signature">{{ 'courseComplete.signature' | translate }}</p>
+          <p class="team-name">{{ 'courseComplete.team' | translate }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-footer">
+      <a routerLink="/resource-1" class="restart-link">{{ 'courseComplete.backToStart' | translate }}</a>
+    </div>
   </div>
 </div>
 
