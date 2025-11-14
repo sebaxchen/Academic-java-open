@@ -45,94 +45,190 @@ console.log(saludar("Mundo"));
   readonly exercises = [
     {
       title: 'Ejercicio 1',
-      code: `import java.util.Scanner;
+      code: `public class HolaSalida {
 
-public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("¿Cómo te llamas? ");
-        String nombre = scanner.nextLine();
+        System.out.println("Hola, bienvenido al curso de programación en Java");
 
-        System.out.println("Hola " + nombre + ", bienvenido al mundo de Java.");
+        System.out.println("Este es un ejemplo de salida por consola");
 
-        scanner.close();
     }
+
 }`
     },
     {
       title: 'Ejercicio 2',
       code: `import java.util.Scanner;
 
-public class Main {
+public class LeerEdad {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("¿Cómo te llamas? ");
-        String nombre = scanner.nextLine();
+        // Creamos el Scanner para leer desde el teclado
 
-        System.out.print("¿Cuántos años tienes? ");
-        int edad = scanner.nextInt();
-        scanner.nextLine();
+        Scanner teclado = new Scanner(System.in);
 
-        System.out.println("Hola " + nombre + ", tienes " + edad + " años.");
 
-        scanner.close();
+
+        System.out.println("¿Cuántos años tienes?");
+
+        int edad = teclado.nextInt(); // Leemos un número entero
+
+
+
+        System.out.println("Tú tienes " + edad + " años.");
+
+        
+
+        teclado.close(); // Cerramos el Scanner
+
     }
+
 }`
     },
     {
       title: 'Ejercicio 3',
       code: `import java.util.Scanner;
 
-public class Main {
+public class LeerNombre {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        int[] notas = new int[3];
-        int suma = 0;
+        Scanner teclado = new Scanner(System.in);
 
-        for (int i = 0; i < notas.length; i++) {
-            System.out.print("Ingresa la nota " + (i + 1) + ": ");
-            notas[i] = scanner.nextInt();
-            suma += notas[i];
-        }
 
-        double promedio = suma / (double) notas.length;
-        System.out.println("Tu promedio es: " + promedio);
 
-        if (promedio >= 11) {
-            System.out.println("¡Aprobaste, buen trabajo!");
-        } else {
-            System.out.println("No te rindas, puedes mejorar.");
-        }
+        System.out.println("¿Cómo te llamas?");
 
-        scanner.close();
+        String nombre = teclado.nextLine(); // Leemos una línea de texto completa
+
+
+
+        System.out.println("Hola " + nombre + ", ¡bienvenido a Java!");
+
+
+
+        teclado.close();
+
     }
+
 }`
     },
     {
       title: 'Ejercicio 4',
+      code: `public class ArregloEnteros {
+
+    public static void main(String[] args) {
+
+        // Arreglo de 3 notas
+
+        int[] notas = new int[3];
+
+
+
+        // Asignamos valores manualmente
+
+        notas[0] = 15;
+
+        notas[1] = 18;
+
+        notas[2] = 20;
+
+
+
+        System.out.println("Notas del estudiante:");
+
+        System.out.println("Primera nota: " + notas[0]);
+
+        System.out.println("Segunda nota: " + notas[1]);
+
+        System.out.println("Tercera nota: " + notas[2]);
+
+    }
+
+}`
+    },
+    {
+      title: 'Ejercicio 5',
+      code: `public class ArregloCadenas {
+
+    public static void main(String[] args) {
+
+        // Arreglo de 3 materias favoritas
+
+        String[] materias = new String[3];
+
+
+
+        materias[0] = "Matemática";
+
+        materias[1] = "Comunicación";
+
+        materias[2] = "Programación";
+
+
+
+        System.out.println("Materias favoritas:");
+
+        System.out.println("1: " + materias[0]);
+
+        System.out.println("2: " + materias[1]);
+
+        System.out.println("3: " + materias[2]);
+
+    }
+
+}`
+    },
+    {
+      title: 'Ejercicio 6',
       code: `import java.util.Scanner;
 
-public class Main {
+public class ArregloNombres {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        String[] juegos = new String[3];
+        Scanner teclado = new Scanner(System.in);
 
-        for (int i = 0; i < juegos.length; i++) {
-            System.out.print("Escribe tu juego favorito #" + (i + 1) + ": ");
-            juegos[i] = scanner.nextLine();
-        }
 
-        System.out.println("Tus juegos favoritos son:");
-        for (int i = 0; i < juegos.length; i++) {
-            System.out.println("- " + juegos[i]);
-        }
 
-        scanner.close();
+        String[] amigos = new String[3];
+
+
+
+        System.out.println("Ingresa el nombre de tu primer amigo:");
+
+        amigos[0] = teclado.nextLine();
+
+
+
+        System.out.println("Ingresa el nombre de tu segundo amigo:");
+
+        amigos[1] = teclado.nextLine();
+
+
+
+        System.out.println("Ingresa el nombre de tu tercer amigo:");
+
+        amigos[2] = teclado.nextLine();
+
+
+
+        System.out.println("Los nombres que ingresaste son:");
+
+        System.out.println(amigos[0]);
+
+        System.out.println(amigos[1]);
+
+        System.out.println(amigos[2]);
+
+
+
+        teclado.close();
+
     }
+
 }`
     }
   ];
@@ -221,7 +317,7 @@ public class Main {
   ];
 
   constructor(private sanitizer: DomSanitizer) {
-    const videoId = '1pJv1WWjRPU';
+    const videoId = 'koyu8qYot_Y';
     const url = `https://www.youtube.com/embed/${videoId}`;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
